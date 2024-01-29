@@ -1,0 +1,13 @@
+FROM python:3.9
+
+WORKDIR /app
+
+COPY requirements.fastapi.txt .
+RUN pip install --no-cache-dir -r requirements.fastapi.txt
+
+COPY myfastapi.py .
+COPY npicalculator.py .
+
+EXPOSE 8000
+
+CMD ["uvicorn", "myfastapi:app", "--host", "0.0.0.0", "--port", "8000"]

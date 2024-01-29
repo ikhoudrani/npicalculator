@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  fastapi:
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    ports:
+      - "8000:8000"
+
+  tkinter:
+    build:
+      context: .
+      dockerfile: Dockerfile.tkinter
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /app

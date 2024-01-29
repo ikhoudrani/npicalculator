@@ -1,0 +1,7 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY requirements.tkinter.txt ui_calculator.py npicalculator.py ./
+
+CMD ["python", "ui_calculator.py"]
